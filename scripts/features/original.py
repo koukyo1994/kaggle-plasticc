@@ -1,8 +1,9 @@
 import pandas as pd
-import numpy as np
 
 from tqdm import tqdm
 from sklearn.linear_model import LinearRegression
+
+tqdm.pandas(desc="apply progress")
 
 
 def cluster_mean_diff(df):
@@ -38,35 +39,24 @@ def linear_slope(df):
         df, new_df, how="left", on=["object_id", "cluster", "passband"])
     new_df["flux_normalized"] = new_df["flux"] / new_df["flux_range"]
     lr = LinearRegression()
-    template = pd.DataFrame({
-        "object_id": new_df.object_id.unique(),
-        "passband0": 0,
-        "passband1": 0,
-        "passband2": 0,
-        "passband3": 0,
-        "passband4": 0,
-        "passband5": 0
-    })
-    for objid in tqdm(new_df.object_id.unique()):
-        obj_df = new_df.query("object_id == @objid")[[
-            "mjd", "cluster", "passband", "flux_normalized"
-        ]]
-        passbands = [[] for _ in range(6)]
-        for cl in obj_df.cluster.unique():
-            cluster_df = obj_df.query("cluster == @cl")
-            for ps in cluster_df.passband.unique():
-                ps_df = cluster_df.query("passband == @ps")
-                if ps_df.shape[0] <= 1:
-                    passbands[ps].append(0)
-                    continue
-                lr.fit(ps_df["mjd"].values.reshape([-1, 1]),
-                       ps_df["flux_normalized"].values.reshape([-1, 1]))
-                passbands[ps].append(np.abs(lr.coef_)[0][0])
-        passbands = [np.mean(p) for p in passbands]
-        for i, ps in enumerate(passbands):
-            template.loc[template.query("object_id == @objid").
-                         index, f"passband{i}"] = ps
-    return template
+
+    def get_coef_(x):
+        if x.shape[0] <= 1:
+            return 0
+        lr.fit(
+            x.mjd.values.reshape([-1, 1]),
+            x.flux_normalized.values.reshape([-1, 1]))
+        return lr.coef_[0][0]
+
+    new_df = new_df.groupby(
+        ["object_id", "cluster", "passband"],
+        as_index=False)["object_id", "cluster", "passband", "mjd",
+                        "flux_normalized"].progress_apply(
+                            lambda x: get_coef_(x)).unstack().groupby(
+                                "object_id", as_index=False).mean()
+    new_df.columns = pd.Index(
+        [new_df.columns.name + e for e in new_df.columns])
+    return new_df
 
 
 def num_outliers(df):
