@@ -1,0 +1,52 @@
+TITLE: flux_err_*_* deleted. LOSS: 0.70462
+TITLE: with_cluster deleted. LOSS: 0.70482TITLE: linear_slope deleted. LOSS: 0.70055
+TITLE: c3 added. LOSS: 0.70327
+TITLE: c3 lag many added. LOSS: 0.70888
+TITLE: c3 lag many added. LOSS: 0.70045
+TITLE: cid_ce added. LOSS: 0.69155
+TITLE: count_above_mean added. LOSS: 0.68802
+TITLE: count_below_mean added. LOSS: 0.69304
+TITLE: autocorrelation added. LOSS: 0.69854
+TITLE: autocorrelation 1 added. LOSS: 0.69032
+TITLE: autocorrelation 1 added. LOSS: 0.68662
+TITLE: autocorrelation 1 added. LOSS: 0.68783
+TITLE: autocorrelation 1 added. LOSS: 0.69251
+TITLE: longest strike above mean added. LOSS: 0.68787
+TITLE: mean change added. LOSS: 0.68943
+TITLE: mean second derivative central added. LOSS: 0.69259
+TITLE: number cwt peaks added. LOSS: 0.69348
+TITLE: ratio beyond r sigma 5 added. LOSS: 0.69726
+TITLE: ratio beyond r sigma 5 added. LOSS: 0.66914
+TITLE: reduced norm added. LOSS: 0.66875
+TITLE: reduced norm added. LOSS: 0.69438
+TITLE: reduced norm added. LOSS: 0.66959
+TITLE: reduced norm added. LOSS: 0.86797
+TITLE: reduced norm added. LOSS: 0.65440
+TITLE: reduced norm added. LOSS: 0.65189
+TITLE: flux norm added. LOSS: 0.65226
+TITLE: flux norm added. LOSS: 0.64665
+TITLE: flux norm added. LOSS: 0.64878
+TITLE: abs energy added. LOSS: 0.63956
+TITLE: abs energy added. LOSS: 0.64277
+TITLE: abs energy added. LOSS: 0.64479
+TITLE: abs energy added. LOSS: 0.64655
+TITLE: linear trend added. LOSS: 0.63863
+TITLE: linear trend added. LOSS: 0.64129
+TITLE: r sigma added. LOSS: 0.64710
+TITLE: r sigma added. LOSS: 0.63592
+TITLE: r sigma added. LOSS: 0.64344
+TITLE: params added. LOSS: 0.62482
+TITLE: whitened added. LOSS: 0.62914
+TITLE: whitened added. LOSS: 0.62742
+TITLE: re added. LOSS: 0.62482
+TITLE: re added. LOSS: 0.62144
+TITLE: stderr deleted. LOSS: 0.62091
+TITLE: rvalue deleted. LOSS: 0.62108
+TITLE: intercept deleted. LOSS: 0.62448
+TITLE: slope deleted. LOSS: 0.62508
+TITLE: pvalue deleted. LOSS: 0.62433
+TITLE: abs_energy added. LOSS: 0.62184
+TITLE: absolute_sum_of_changes added. LOSS: 0.62138
+TITLE: cidce added. LOSS: 0.62143
+TITLE: cidce added. LOSS: 0.61962
+TITLE: rsigma added. LOSS: 0.62004
